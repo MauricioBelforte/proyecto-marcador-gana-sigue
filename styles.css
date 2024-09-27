@@ -1,0 +1,88 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0F010F;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos de botones e inputs */
+input, button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+button {
+    background-color: #282828;
+    color: #FFD700;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button.gano {
+    background-color: #640000;
+}
+
+h1, h2 {
+    color: #FFD700;
+}
+
+.jugadores-container {
+    margin: 20px 0;
+    
+}
+
+.jugador-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.botones-container{
+    
+}
+
+#jugadores-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#jugadores-list li {
+    display: flex;
+    justify-content: space-between; /* Alinea el nombre a la izquierda y los puntos a la derecha */
+    background-color: #1e1e1e;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+}
+
+#jugadores-list li:nth-child(even) {
+    background-color: #282828;
+}
+
+button.gano {
+    margin-top: 10px;
+}
+
+.siguiente, .eliminado {
+    margin-top: 20px;
+}

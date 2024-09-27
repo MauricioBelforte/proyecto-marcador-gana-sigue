@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colimbeta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Rey de la Colimba</h1>
+    
+    <div class="input-container">
+        <input type="text" id="nombre" placeholder="Nombre del jugador">
+        <input type="number" id="puntos" value="0">
+        <button id="agregar">Agregar</button>
+    </div>
+
+    <h2>Luchadores</h2>
+    <div class="jugadores-container">
+        <div class="jugador-container">
+            <label id="label-luchador1">Luchador 1</label>
+            <div class="botones-container">
+                <button class="gano" data-luchador="1">Gano</button>
+                <button class="gano" data-luchador="1">Vuelve</button>
+                <button class="gano" data-luchador="1">Cabio</button>
+            </div>
+        </div>
+        <div class="jugador-container">
+            <label id="label-luchador2">Luchador 2</label>
+            <div class="botones-container">
+                <button class="gano" data-luchador="2">Gano</button>
+                <button class="gano" data-luchador="2">Vuelve</button>
+                <button class="gano" data-luchador="2">Cabio</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Jugadores y Puntajes</h2>
+    <ul id="lista-jugadores"></ul>
+
+    <h3 id="siguiente">Siguiente:</h3>
+    <h3 id="eliminado">Este se cago</h3>
+s
+    <button id="eliminar">Eliminar</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
