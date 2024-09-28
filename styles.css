@@ -31,22 +31,32 @@ button {
 }
 
 button.gano {
-    background-color: #640000;
+    /* background-color: #640000; */
+    background-color: #282828;
 }
 
 h1, h2 {
     color: #FFD700;
 }
 
+
+.input-container{
+    padding: 2%;
+}
+
 .jugadores-container {
-    margin: 20px 0;
+    margin: 5px 0;
+    padding: 5px;
     
 }
 
 .jugador-container{
+    padding: 5px;
+    margin: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+
 
 }
 
@@ -56,7 +66,7 @@ h1, h2 {
     
 }
 
-#jugadores-list {
+#lista-jugadores {
     list-style: none;
     padding: 0;
     margin-top: 20px;
@@ -65,7 +75,7 @@ h1, h2 {
     margin-right: auto;
 }
 
-#jugadores-list li {
+#lista-jugadores li {
     display: flex;
     justify-content: space-between; /* Alinea el nombre a la izquierda y los puntos a la derecha */
     background-color: #1e1e1e;
@@ -85,4 +95,25 @@ button.gano {
 
 .siguiente, .eliminado {
     margin-top: 20px;
+}
+
+
+.padding1{
+    padding: 1%;
+}
+
+
+
+
+.pantalla-derecha{
+    display: flex;
+    width: 55%;
+
+}
+
+.pantalla-izquierda{
+    display: flex;
+    justify-content: right;
+    width: 45%;
+    
 }
