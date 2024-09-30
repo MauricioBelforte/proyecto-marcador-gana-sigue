@@ -51,8 +51,8 @@ h1, h2 {
 }
 
 .jugador-container{
-    padding: 5px;
-    margin: 5px;
+   /*  padding: 5px;
+    margin: 5px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,13 +107,13 @@ button.gano {
 
 .pantalla-derecha{
     display: flex;
-    width: 55%;
+    width: 300px;
 
 }
 
 .pantalla-izquierda{
     display: flex;
     justify-content: right;
-    width: 45%;
+    width: 150px;
     
 }
