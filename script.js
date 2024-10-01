@@ -11,7 +11,7 @@ class Jugador {
 
 let jugadores = [];
 
-const botonAgregar = document.getElementById('agregar')
+const botonAgregar = document.getElementById('agregar');
 
 botonAgregar.addEventListener('click', function () {
     let nombre = document.getElementById('nombre').value;
@@ -20,14 +20,19 @@ botonAgregar.addEventListener('click', function () {
     if (nombre !== '') {
         let jugador = new Jugador(nombre, puntos);
         jugadores.push(jugador);
-        console.log(jugadores)
+        console.log(jugadores);
 
-        actualizarListas();
+        actualizarLista();
         document.getElementById('nombre').value = '';
         document.getElementById('puntos').value = '0';
+
+        // Limpiar mensaje de error al agregar un nuevo jugador
+        mostrarError("");
+
+    } else {
+        mostrarError("El nombre del jugador no puede estar vacío.");
     }
 });
-
 
 
 const arrayConLos2BotonesGano = document.querySelectorAll('.gano')
@@ -53,7 +58,7 @@ arrayConLos2BotonesGano.forEach(button => {
             console.log(jugadores)
         }
 
-        actualizarListas();
+        actualizarLista();
 
     });
 });
@@ -62,9 +67,11 @@ arrayConLos2BotonesGano.forEach(button => {
 function ganoLuchador1() {
 
     if (jugadores.length < 2) {
-        console.error("Debe haber al menos dos luchadores para sumar puntos.");
+        mostrarError("Debe haber al menos dos luchadores para que funcione correctamente");
         return;
     }
+
+    
     // Suma un punto el primero jugador
     jugadores[0].sumarpunto();
 
@@ -73,28 +80,29 @@ function ganoLuchador1() {
     jugadores.push(segundoJugador)
 
 
-    actualizarListas();
+    actualizarLista();
     console.log(jugadores);
 }
 
 function ganoLuchador2() {
     if (jugadores.length < 2) {
-        console.error("Debe haber al menos dos luchadores para sumar puntos.");
+        mostrarError("Debe haber al menos dos luchadores para que funcione correctamente");
         return;
     }
 
+    
     // Suma un punto el segundo jugador
     jugadores[1].sumarpunto();
 
     // Mando al final al primer jugador
     const primerJugador = jugadores.shift();
     jugadores.push(primerJugador);
-    actualizarListas();
+    actualizarLista();
     console.log(jugadores);
 }
 
 
-function actualizarListas() {
+function actualizarLista() {
     const jugadoresList = document.getElementById('lista-jugadores');
     jugadoresList.innerHTML = '';
 
@@ -106,5 +114,19 @@ function actualizarListas() {
         document.getElementById('label-luchador1').textContent = jugadores[0].nombre;
         document.getElementById('label-luchador2').textContent = jugadores[1].nombre;
         document.getElementById('siguiente').textContent = `Siguiente: ${jugadores[2]?.nombre || ''}`;
+        mostrarError(""); // Limpiar mensaje de error si no hay error
+    }
+}
+
+
+
+
+function mostrarError(mensaje) {
+    const mensajeError = document.getElementById('mensajeError');
+    mensajeError.textContent = mensaje;
+    if (mensaje) {
+        mensajeError.classList.add('visible');
+    } else {
+        mensajeError.classList.remove('visible');
     }
 }

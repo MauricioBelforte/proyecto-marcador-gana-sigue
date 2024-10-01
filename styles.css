@@ -21,6 +21,7 @@ input, button {
     font-size: 16px;
     border: none;
     outline: none;
+    background-color: #e5e5e6;
 }
 
 button {
@@ -117,3 +118,26 @@ button.gano {
     width: 150px;
     
 }
+
+
+
+
+    
+    .mensaje-error {
+        color: rgb(104, 52, 52);
+        font-weight: bold;
+        font-size:large;
+        margin: 1% 20%;
+        padding: 2%;
+        border: 1px solid rgb(43, 26, 26);
+        background-color: #ffe6e6;
+        border-radius: 5px;
+        display: none; /* Oculto por defecto */
+        transition: opacity 0.5s ease-in-out;
+    }
+    
+    .mensaje-error.visible {
+        display: block;
+        opacity: 1;
+    }
+    
