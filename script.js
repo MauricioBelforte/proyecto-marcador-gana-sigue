@@ -52,10 +52,47 @@ arrayConLos2BotonesGano.forEach(button => {
             console.log(segundoJugador)
             console.log(jugadores)
         }
+
         actualizarListas();
 
     });
 });
+
+
+function ganoLuchador1() {
+
+    if (jugadores.length < 2) {
+        console.error("Debe haber al menos dos luchadores para sumar puntos.");
+        return;
+    }
+    // Suma un punto el primero jugador
+    jugadores[0].sumarpunto();
+
+    // Mando al final al segundo jugador
+    const segundoJugador = jugadores.splice(1, 1)[0] // El [0] es porque splice esta devolviendo un arreglo con un solo elemento y con el [0] devuelve el elemento
+    jugadores.push(segundoJugador)
+
+
+    actualizarListas();
+    console.log(jugadores);
+}
+
+function ganoLuchador2() {
+    if (jugadores.length < 2) {
+        console.error("Debe haber al menos dos luchadores para sumar puntos.");
+        return;
+    }
+
+    // Suma un punto el segundo jugador
+    jugadores[1].sumarpunto();
+
+    // Mando al final al primer jugador
+    const primerJugador = jugadores.shift();
+    jugadores.push(primerJugador);
+    actualizarListas();
+    console.log(jugadores);
+}
+
 
 function actualizarListas() {
     const jugadoresList = document.getElementById('lista-jugadores');
