@@ -35,34 +35,6 @@ botonAgregar.addEventListener('click', function () {
 });
 
 
-const arrayConLos2BotonesGano = document.querySelectorAll('.gano')
-
-arrayConLos2BotonesGano.forEach(button => {
-    button.addEventListener('click', function () {
-        /* document.getElementById("label-luchador1").textContent
-        let indice =  */
-        let index = this.getAttribute('data-luchador') - 1;
-        jugadores[index].sumarpunto();
-
-        if (index == 1) { //Esto es si gano el segundo luchador
-            //Mando al final al primero
-            console.log(jugadores)
-            const primerJugador = jugadores.shift();
-            jugadores.push(primerJugador)
-            console.log(primerJugador)
-            console.log(jugadores)
-        } else { // Esto es si gano el primero es decir con index==0   
-            const segundoJugador = jugadores.splice(1, 1)[0] // El [0] es porque splice esta devolviendo un arreglo con un solo elemento y con el [0] devuelve el elemento
-            jugadores.push(segundoJugador)
-            console.log(segundoJugador)
-            console.log(jugadores)
-        }
-
-        actualizarLista();
-
-    });
-});
-
 
 function ganoLuchador1() {
 
@@ -71,7 +43,6 @@ function ganoLuchador1() {
         return;
     }
 
-    
     // Suma un punto el primero jugador
     jugadores[0].sumarpunto();
 
@@ -81,7 +52,7 @@ function ganoLuchador1() {
 
 
     actualizarLista();
-    console.log(jugadores);
+
 }
 
 function ganoLuchador2() {
@@ -90,7 +61,7 @@ function ganoLuchador2() {
         return;
     }
 
-    
+
     // Suma un punto el segundo jugador
     jugadores[1].sumarpunto();
 
@@ -98,7 +69,7 @@ function ganoLuchador2() {
     const primerJugador = jugadores.shift();
     jugadores.push(primerJugador);
     actualizarLista();
-    console.log(jugadores);
+
 }
 
 
@@ -129,4 +100,52 @@ function mostrarError(mensaje) {
     } else {
         mensajeError.classList.remove('visible');
     }
+}
+
+
+function intercambiarJugadores(arreglo, indice1, indice2) {
+    let temp = arreglo[indice1];
+    arreglo[indice1] = arreglo[indice2];
+    arreglo[indice2] = temp;
+}
+
+
+function vuelveLuchador1() {
+    if (jugadores.length < 3) {
+        mostrarError('Debe haber al menos 3 jugadores para realizar esta acción.');
+        return;
+    }
+    intercambiarJugadores(jugadores, 0, 2); // Intercambia el primer luchador con el tercero
+    actualizarLista();
+
+}
+
+function vuelveLuchador2() {
+    if (jugadores.length < 3) {
+        mostrarError('Debe haber al menos 3 jugadores para realizar esta acción.');
+        return;
+    }
+    intercambiarJugadores(jugadores, 1, 2); // Intercambia el segundo luchador con el tercero
+    actualizarLista();
+
+}
+
+function alFinalLuchador1() {
+    if (jugadores.length < 2) {
+        mostrarError('Debe haber al menos 2 jugadores para realizar esta acción.');
+        return;
+    }
+    const primerJugador = jugadores.shift(); // Elimina el primer jugador
+    jugadores.push(primerJugador); // Añade el primer jugador al final
+    actualizarLista();
+}
+
+function alFinalLuchador2() {
+    if (jugadores.length < 2) {
+        mostrarError('Debe haber al menos 2 jugadores para realizar esta acción.');
+        return;
+    }
+    const segundoJugador = jugadores.splice(1, 1)[0]; // Elimina el segundo jugador
+    jugadores.push(segundoJugador); // Añade el segundo jugador al final
+    actualizarLista();
 }
