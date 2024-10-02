@@ -78,7 +78,7 @@ function actualizarLista() {
     jugadoresList.innerHTML = '';
 
     jugadores.forEach(jugador => {
-        jugadoresList.innerHTML += `<li><span>${jugador.nombre}</span><span>${jugador.puntos}</span></li>`;
+        jugadoresList.innerHTML += `<li class="jugador-item"><span class="nombre">${jugador.nombre}</span><span class="puntos">${jugador.puntos}</span> <button>Eliminar</button>  <button>Editar</button> </li>`;
     });
 
     if (jugadores.length >= 2) {

@@ -8,6 +8,7 @@
 /* Estilos del body */
 body {
     font-family: Arial, sans-serif;
+    
     background-color: #0F010F;
     color: white;
     text-align: center;
@@ -36,8 +37,29 @@ button.gano {
     background-color: #282828;
 }
 
+
+/* Estilos genéricos*/
+.ancho-input-numero {
+    width: 65px;
+}
+
+.padding1{
+    padding: 1%;
+}
+
+
+.padding2{
+    padding: 2%;
+}
+
+
 h1, h2 {
+    margin-top: 1%;
     color: #FFD700;
+}
+
+li span {
+    display: inline-block;
 }
 
 
@@ -71,7 +93,7 @@ h1, h2 {
     list-style: none;
     padding: 0;
     margin-top: 20px;
-    max-width: 300px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -80,7 +102,7 @@ h1, h2 {
     display: flex;
     justify-content: space-between; /* Alinea el nombre a la izquierda y los puntos a la derecha */
     background-color: #1e1e1e;
-    padding: 10px;
+    
     margin-bottom: 5px;
     border: 1px solid #FFD700;
     color: #FFD700;
@@ -99,10 +121,6 @@ button.gano {
 }
 
 
-.padding1{
-    padding: 1%;
-}
-
 
 
 
@@ -118,8 +136,25 @@ button.gano {
     width: 150px;
     
 }
+.jugador-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.nombre {
+    flex-grow: 1;
+    text-align: left;
+}
 
+.puntos {
+    text-align: left;
+    width: 50px;
+}
+
+.jugador-item span, .jugador-item button {
+    margin-left: 10px;
+}
 
 
     
