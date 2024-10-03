@@ -77,15 +77,15 @@ function actualizarLista() {
     const jugadoresList = document.getElementById('lista-jugadores');
     jugadoresList.innerHTML = '';
 
-    jugadores.forEach(jugador => {
-        jugadoresList.innerHTML += `<li class="jugador-item"><span class="nombre">${jugador.nombre}</span><span class="puntos">${jugador.puntos}</span> <button>Eliminar</button>  <button>Editar</button> </li>`;
+    jugadores.forEach((jugador, indice) => {
+        jugadoresList.innerHTML += `<li class="jugador-item"><span class="nombre">${jugador.nombre}</span><span class="puntos">${jugador.puntos}</span>  <button onclick="eliminarJugador(${indice})">Eliminar</button> <button>Editar</button> </li>`;
     });
 
     if (jugadores.length >= 2) {
         document.getElementById('label-luchador1').textContent = jugadores[0].nombre;
         document.getElementById('label-luchador2').textContent = jugadores[1].nombre;
         document.getElementById('siguiente').textContent = `Siguiente: ${jugadores[2]?.nombre || ''}`;
-        mostrarError(""); // Limpiar mensaje de error si no hay error
+        mostrarError(""); // Limpiar mensaje de error si no hay error 
     }
 }
 
@@ -147,5 +147,11 @@ function alFinalLuchador2() {
     }
     const segundoJugador = jugadores.splice(1, 1)[0]; // Elimina el segundo jugador
     jugadores.push(segundoJugador); // Añade el segundo jugador al final
+    actualizarLista();
+}
+
+
+function eliminarJugador(indice) {
+    jugadores.splice(indice, 1);
     actualizarLista();
 }
