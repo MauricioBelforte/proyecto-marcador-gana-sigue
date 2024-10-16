@@ -45,14 +45,29 @@
         </div>
 
     </div>
-    <h3 class="padding2" id="siguiente">Siguiente:</h3>
+    <h3 class="padding1" id="siguiente">Siguiente:</h3>
 
-    <h2>Jugadores y Puntajes</h2>
+    <h2 class="padding2">Jugadores y Puntajes</h2>
     <ul id="lista-jugadores"></ul>
 
     
     
     <button id="eliminar">Reset</button>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Editar Jugador</h2>
+            <div class="input-container">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="editarNombre">
+                <label for="puntos">Puntos:</label>
+                <input class="ancho-input-numero" type="number" id="editarPuntos">
+                <button onclick="guardarCambios()">Guardar</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

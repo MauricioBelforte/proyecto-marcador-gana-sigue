@@ -78,7 +78,7 @@ function actualizarLista() {
     jugadoresList.innerHTML = '';
 
     jugadores.forEach((jugador, indice) => {
-        jugadoresList.innerHTML += `<li class="jugador-item"><span class="nombre">${jugador.nombre}</span><span class="puntos">${jugador.puntos}</span>  <button onclick="eliminarJugador(${indice})">Eliminar</button> <button>Editar</button> </li>`;
+        jugadoresList.innerHTML += `<li class="jugador-item"><span class="nombre">${jugador.nombre}</span><span class="puntos">${jugador.puntos}</span>  <button onclick="eliminarJugador(${indice})">Eliminar</button>     <button onclick="abrirModalEditar(${indice})">Editar</button> </li>`;
     });
 
     if (jugadores.length >= 2) {
@@ -153,5 +153,31 @@ function alFinalLuchador2() {
 
 function eliminarJugador(indice) {
     jugadores.splice(indice, 1);
+    actualizarLista();
+}
+
+
+
+
+let jugadorActualIndice;
+
+function abrirModalEditar(indice) {
+    jugadorActualIndice = indice;
+    const jugador = jugadores[indice];
+    document.getElementById('editarNombre').value = jugador.nombre;
+    document.getElementById('editarPuntos').value = jugador.puntos;
+    document.getElementById('modal').style.display = 'block';
+}
+
+function cerrarModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+function guardarCambios() {
+    const nombre = document.getElementById('editarNombre').value;
+    const puntos = parseInt(document.getElementById('editarPuntos').value, 10);
+    jugadores[jugadorActualIndice].nombre = nombre;
+    jugadores[jugadorActualIndice].puntos = puntos;
+    cerrarModal();
     actualizarLista();
 }
