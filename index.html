@@ -1,77 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colimbeta</title>
     <link rel="icon" href="favicon.ico" type="image/png">
-    
-    
+
+
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Rey de la Colina</h1>
-    
-    <div class="input-container">
-        <input type="text" id="nombre" placeholder="Nombre del jugador">
-        <input class="ancho-input-numero" type="number" id="puntos" value="0" placeholder="Puntaje">
-        <button id="agregar">Agregar</button>
-    </div>
 
-   
-    <div class="jugadores-container">
-        <div id="mensajeError" class="mensaje-error"></div>
-        <div class="jugador-container">
-            <div class=" pantalla-izquierda  padding1">
-                <label id="label-luchador1">Luchador 1</label>
+<body>
+    <header class="header">
+        <h1>Rey de la Colina</h1>
+    </header>
+
+    <main>
+        <div class="input-container">
+            <input type="text" id="nombre" placeholder="Nombre del jugador">
+            <input class="ancho-input-numero" type="number" id="puntos" value="0" placeholder="Puntaje">
+            <button id="agregar">Agregar</button>
+        </div>
+
+
+        <div class="jugadores-container">
+            <div id="mensajeError" class="mensaje-error"></div>
+            <div class="jugador-container">
+                <div class=" pantalla-izquierda  padding1">
+                    <label id="label-luchador1">Luchador 1</label>
+                </div>
+                <div class="botones-container  pantalla-derecha  padding1">
+                    <div class="botones-container">
+                        <button class="gano" onclick="ganoLuchador1()">Gano</button>
+                        <button class="vuelve" onclick="vuelveLuchador1()">Vuelve</button>
+                        <button class="alfinal" onclick="alFinalLuchador1()">Ultimo</button>
+                    </div>
+                </div>
             </div>
-            <div class="botones-container  pantalla-derecha  padding1">
-                <div class="botones-container">
-                    <button class="gano" onclick="ganoLuchador1()">Gano</button>
-                    <button class="vuelve" onclick="vuelveLuchador1()">Vuelve</button>
-                    <button class="alfinal" onclick="alFinalLuchador1()">Ultimo</button>
+
+            <div class="jugador-container">
+                <div class=" pantalla-izquierda  padding1 ">
+                    <label id="label-luchador2">Luchador 2</label>
+                </div>
+                <div class="botones-container  pantalla-derecha  padding1">
+                    <div class="botones-container">
+                        <button class="gano" onclick="ganoLuchador2()">Gano</button>
+                        <button class="vuelve" onclick="vuelveLuchador2()">Vuelve</button>
+                        <button class="alfinal" onclick="alFinalLuchador2()">Ultimo</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <h3 class="padding1" id="siguiente">Siguiente:</h3>
+
+        <h2 class="padding2">Jugadores y Puntajes</h2>
+        <ul id="lista-jugadores"></ul>
+
+
+
+        <button id="eliminar">Reset</button>
+
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal()">&times;</span>
+                <h2>Editar Jugador</h2>
+                <div class="input-container">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="editarNombre">
+                    <label for="puntos">Puntos:</label>
+                    <input class="ancho-input-numero" type="number" id="editarPuntos">
+                    <button onclick="guardarCambios()">Guardar</button>
                 </div>
             </div>
         </div>
-
-        <div class="jugador-container">
-            <div class=" pantalla-izquierda  padding1 ">
-                <label id="label-luchador2">Luchador 2</label>
-            </div>
-            <div class="botones-container  pantalla-derecha  padding1">
-                <div class="botones-container">
-                    <button class="gano" onclick="ganoLuchador2()">Gano</button>
-                    <button class="vuelve" onclick="vuelveLuchador2()">Vuelve</button>
-                    <button class="alfinal" onclick="alFinalLuchador2()">Ultimo</button>
-                </div>  
-            </div>
-        </div>
-
-    </div>
-    <h3 class="padding1" id="siguiente">Siguiente:</h3>
-
-    <h2 class="padding2">Jugadores y Puntajes</h2>
-    <ul id="lista-jugadores"></ul>
-
-    
-    
-    <button id="eliminar">Reset</button>
-
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
-            <h2>Editar Jugador</h2>
-            <div class="input-container">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="editarNombre">
-                <label for="puntos">Puntos:</label>
-                <input class="ancho-input-numero" type="number" id="editarPuntos">
-                <button onclick="guardarCambios()">Guardar</button>
-            </div>
-        </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
+<footer class="footer">
+    <p>Colimbeta &copy; 2025</p>
+    <p>Desarrollado por Mauricio Belforte</p>
+
+</footer>
+
 </html>
