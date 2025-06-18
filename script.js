@@ -181,3 +181,12 @@ function guardarCambios() {
     cerrarModal();
     actualizarLista();
 }
+
+function resetLista() {
+    jugadores = [];
+    document.getElementById('label-luchador1').textContent = "Luchador 1";
+    document.getElementById('label-luchador2').textContent = "Luchador 2";
+    document.getElementById('siguiente').textContent = "Siguiente: ";
+    actualizarLista();
+    mostrarError(""); // Limpiar mensaje de error al reiniciar la lista
+}
